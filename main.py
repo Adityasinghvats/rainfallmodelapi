@@ -8,8 +8,10 @@ from sklearn.ensemble import RandomForestClassifier #ml model we will use to tra
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 import pickle
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 with open("rainfall_prediction_model.pkl", "rb") as file:
   model_data = pickle.load(file)
